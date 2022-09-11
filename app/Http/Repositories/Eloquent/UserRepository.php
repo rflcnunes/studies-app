@@ -18,4 +18,10 @@ class UserRepository implements UserRepositoryInterface
     {
         return $this->user->all();
     }
+
+    public function getById($id)
+    {
+        return $this->user->find($id)->load('posts', 'comments');
+    }
+    
 }

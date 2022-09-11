@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Http\Repositories\Contracts\UserRepositoryInterface;
 
 class UserController extends Controller
@@ -32,6 +31,6 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return User::find($id)->load('posts', 'comments');
+        return $this->userRepository->getById($id);
     }
 }
